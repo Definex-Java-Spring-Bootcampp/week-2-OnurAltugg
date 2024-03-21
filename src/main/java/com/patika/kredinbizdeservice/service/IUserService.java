@@ -12,4 +12,6 @@ public interface IUserService {
     User getByEmail(String email);
 
     User update(String email, User user);
+    
+    //JDE 20.1 DENEME
 }
