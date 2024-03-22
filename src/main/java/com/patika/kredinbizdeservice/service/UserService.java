@@ -1,11 +1,18 @@
 package com.patika.kredinbizdeservice.service;
 
+import com.patika.kredinbizdeservice.model.Application;
+import com.patika.kredinbizdeservice.model.ConsumerLoan;
 import com.patika.kredinbizdeservice.model.User;
+import com.patika.kredinbizdeservice.model.VechileLoan;
 import com.patika.kredinbizdeservice.repository.UserRepository;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,4 +69,16 @@ public class UserService implements IUserService {
 
         return foundUser.get();
     }
+
+	@Override
+	public List<Application> getAllApplications(String email) {
+		Optional<User> userOptional = userRepository.findByEmail(email);
+	    if (userOptional.isPresent()) {
+	        User user = userOptional.get();
+	        return user.getApplicationList();
+	    } else {
+	        return Collections.emptyList(); 
+	    }
+	}
+
 }

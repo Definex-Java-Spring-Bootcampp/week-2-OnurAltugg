@@ -1,5 +1,6 @@
 package com.patika.kredinbizdeservice.service;
 
+import com.patika.kredinbizdeservice.model.Application;
 import com.patika.kredinbizdeservice.model.User;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public interface IUserService {
 
     User update(String email, User user);
     
-    //JDE 20.1 DENEME
+    List<Application> getAllApplications(String email);
+
 }
