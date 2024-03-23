@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.patika.kredinbizdeservice.model.Bank;
+import com.patika.kredinbizdeservice.model.Campaign;
 import com.patika.kredinbizdeservice.model.CreditCard;
 import com.patika.kredinbizdeservice.service.IBankService;
 
@@ -51,5 +52,10 @@ public class BankController {
 	public List<CreditCard> getBankCreditCards(@PathVariable String bankName) {
         return bankService.getCreditCardsByName(bankName);
     }
+	
+	@GetMapping("/campaigns")
+	public List<Campaign> getAllCampaigns(){
+		return bankService.getAllCampaignsSortedByDateDescending();
+	}
 
 }

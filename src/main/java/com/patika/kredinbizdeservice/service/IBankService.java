@@ -3,6 +3,7 @@ package com.patika.kredinbizdeservice.service;
 import java.util.List;
 
 import com.patika.kredinbizdeservice.model.Bank;
+import com.patika.kredinbizdeservice.model.Campaign;
 import com.patika.kredinbizdeservice.model.CreditCard;
 
 public interface IBankService {
@@ -16,5 +17,7 @@ public interface IBankService {
 	void delete(String name);
 
 	List<CreditCard> getCreditCardsByName(String bankName);
+
+	List<Campaign> getAllCampaignsSortedByDateDescending();
 
 }

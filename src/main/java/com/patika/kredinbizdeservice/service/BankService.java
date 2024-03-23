@@ -1,10 +1,13 @@
 package com.patika.kredinbizdeservice.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
 import com.patika.kredinbizdeservice.model.Bank;
+import com.patika.kredinbizdeservice.model.Campaign;
 import com.patika.kredinbizdeservice.model.CreditCard;
 import com.patika.kredinbizdeservice.repository.BankRepository;
 
@@ -55,6 +58,18 @@ public class BankService implements IBankService{
 		else {
 			return Collections.emptyList();
 		}
+	}
+
+	@Override
+	public List<Campaign> getAllCampaignsSortedByDateDescending() {
+		List<Campaign> campaigns = new ArrayList<>();
+	    List<Bank> banks = bankRepository.getAll();
+	    
+	    banks.forEach(bank -> bank.getCreditCards().forEach(creditCard -> campaigns.addAll(creditCard.getCampaignList())));
+	    
+	    campaigns.sort(Comparator.comparing(Campaign::getCreateDate).reversed());
+	    
+	    return campaigns;
 	}
 
 }
