@@ -31,4 +31,12 @@ public class Bank {
                 ", loanList=" + loanList +
                 '}';
     }
+
+	public List<CreditCard> getCreditCards() {
+		return creditCards;
+	}
+
+	public void setCreditCards(List<CreditCard> creditCards) {
+		this.creditCards = creditCards;
+	}
 }
