@@ -1,5 +1,6 @@
 package com.patika.kredinbizdeservice.service;
 
+import com.patika.kredinbizdeservice.model.Application;
 import com.patika.kredinbizdeservice.model.User;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -29,4 +30,10 @@ public class UserService2 implements IUserService {
     public User update(String email, User user) {
         return null;
     }
+
+	@Override
+	public List<Application> getAllApplications(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
